@@ -17,3 +17,19 @@ This repository publishes shared musical contracts for chord charts, textual tab
 
 - `src/` contains public contracts and version constants.
 - `docs/` explains package scope, architecture, and migration guidance.
+
+## Downstream Consumers
+
+The following projects depend on published releases of this package:
+
+| Project | Path | Dependency location |
+| ------- | ---- | ------------------- |
+| ac15    | `/home/saito/_git/ac15` | `packages/contracts/package.json` → `achorde-musical-domain` |
+
+After publishing a new version:
+
+1. Go to each downstream project listed above.
+2. Update the dependency version in the listed `package.json`.
+3. Run `pnpm install` to regenerate the lockfile.
+4. Run tests and build to confirm compatibility.
+5. Commit and push the downstream update.
