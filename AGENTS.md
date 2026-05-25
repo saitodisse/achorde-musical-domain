@@ -22,9 +22,12 @@ This repository publishes shared musical contracts for chord charts, textual tab
 
 The following projects depend on published releases of this package:
 
-| Project | Path | Dependency location |
-| ------- | ---- | ------------------- |
-| ac15    | `/home/saito/_git/ac15` | `packages/contracts/package.json` → `achorde-musical-domain` |
+| Project | Path                    | Dependency location                                          | Relação    |
+| ------- | ----------------------- | ------------------------------------------------------------ | ---------- |
+| ac15    | `/home/saito/_git/ac15` | `packages/contracts/package.json` → `achorde-musical-domain` | direta     |
+| ac15    | `/home/saito/_git/ac15` | `packages/ui` → `@ac15/contracts` → `achorde-musical-domain` | transitiva |
+
+Types flow through `@ac15/contracts` (which re-exports this package) into `packages/ui`, `packages/domain`, `packages/chord-engine`, and `apps/web`.
 
 After publishing a new version:
 
