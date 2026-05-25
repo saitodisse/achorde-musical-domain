@@ -1,27 +1,35 @@
-# Arquitetura
+# Architecture
 
-`achorde-musical-domain` é a superfície pública de linguagem musical compartilhada entre os três projetos locais.
+`achorde-musical-domain` is a public TypeScript contract package for musical software. It provides shared data shapes for parsers, renderers, editors, and applications that need to exchange chord-chart, tab, diagnostic, and fretted-voicing data.
 
-## O que entra aqui
+## Included Scope
 
-- contratos de diagnóstico
-- símbolo de acorde parseado
-- AST textual de cifra
-- AST de cifra por seções e linhas
-- voicings de instrumentos trasteados
-- porta explícita para teoria musical externa
+- parser diagnostic contracts
+- parsed chord-symbol contracts
+- textual tab AST contracts
+- chord-chart AST contracts with sections, lines, and segments
+- fretted-instrument voicing contracts
+- an explicit port for external music-theory adapters
 
-## O que não entra aqui
+## Excluded Scope
 
 - React
-- storage local
+- local storage
 - sync
-- roteamento
-- regras privadas do produto AC15
-- renderização SVG
-- parser textual completo
+- routing
+- product-specific application rules
+- SVG rendering
+- complete text parser implementations
+- bundled music-theory engines
 
-## Regra de uso
+## Dependency Rule
 
-`tab-renderer` e `svguitar-react` devem depender desse pacote para os tipos públicos compartilhados. O AC15 deve tratá-lo como dependência pública e manter os contratos privados separados.
+Consumers should depend on this package for shared public contracts and keep implementation-specific behavior in their own packages. Parser libraries own parsing behavior. Renderer libraries own visual rendering. Applications own persistence, sync, routing, and product workflows.
 
+## Versioning Rule
+
+Contract changes follow semantic versioning:
+
+- patch releases may clarify docs or fix non-breaking type details
+- minor releases may add optional fields or new exported contracts
+- major releases may rename, remove, or structurally change public contracts

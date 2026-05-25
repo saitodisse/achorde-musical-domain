@@ -1,19 +1,19 @@
 # AGENTS.md - achorde-musical-domain
 
-## Propósito
+## Purpose
 
-Este repositório publica contratos musicais compartilhados para cifras, AST textual, diagnósticos, voicings e portas de teoria musical. Ele não contém React, storage, roteamento, sync ou regras privadas do AC15.
+This repository publishes shared musical contracts for chord charts, textual tab ASTs, parser diagnostics, fretted-instrument voicings, and music-theory adapter ports. It does not contain React, storage, routing, sync, SVG rendering, or product-specific application rules.
 
-## Regras
+## Rules
 
-- Use `pnpm` para instalar, testar, buildar e publicar.
-- Mantenha a API pública pequena, estável e sem dependências runtime.
-- Preserve compatibilidade semântica entre `tab-renderer`, `svguitar-react` e `ac15`.
-- Atualize `README.md`, `CHANGELOG.md` e `docs/` quando o contrato público mudar.
-- Prefira testes de tipo e casos de contrato pequenos para validar o pacote.
+- Use `pnpm` to install dependencies, run tests, build, and publish.
+- Keep the public API small, stable, and free of runtime dependencies.
+- Preserve semantic compatibility for downstream parsers, renderers, editors, and applications.
+- Update `README.md`, `CHANGELOG.md`, and `docs/` whenever the public contract changes.
+- Prefer type-level tests and small contract examples to validate the package.
+- Keep all repository documentation, changelog entries, comments, and commit messages in English.
 
-## Estrutura
+## Structure
 
-- `src/` contém os contratos públicos e constantes de versão.
-- `docs/` contém a explicação do escopo e a estratégia de migração.
-
+- `src/` contains public contracts and version constants.
+- `docs/` explains package scope, architecture, and migration guidance.

@@ -1,7 +1,6 @@
-# Documentação
+# Documentation
 
-Este diretório descreve o escopo público do pacote e o caminho de migração para os consumidores locais.
+This directory describes the public package scope and migration path for downstream consumers.
 
-- [Arquitetura](./architecture.md)
-- [Migração](./migration.md)
-
+- [Architecture](./architecture.md)
+- [Migration](./migration.md)

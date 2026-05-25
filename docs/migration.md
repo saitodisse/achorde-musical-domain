@@ -1,15 +1,16 @@
-# Migração
+# Migration
 
-## Ordem recomendada
+## Recommended Order
 
-1. Publicar `achorde-musical-domain`.
-2. Apontar `tab-renderer` para o pacote novo.
-3. Apontar `svguitar-react` para o pacote novo.
-4. Reduzir `@ac15/contracts` a contratos privados do AC15 e reexports dos tipos públicos.
+1. Add `achorde-musical-domain` as a dependency.
+2. Replace locally duplicated parser diagnostic and chord-symbol types with imports from this package.
+3. Replace fretted-instrument voicing types with `FrettedInstrumentVoicing`.
+4. Keep parser, renderer, persistence, routing, and application workflows in the consuming package.
+5. Run type checks and package builds before publishing downstream releases.
 
-## Critérios de corte
+## Cutover Criteria
 
-- `svguitar-react` não deve mais referenciar `@ac15/contracts`.
-- `tab-renderer` deve compilar apenas com o pacote novo para os contratos públicos.
-- O AC15 deve continuar funcionando com seus contratos privados sem carregar dependência pública de um produto privado.
-
+- Public packages should not depend on private or machine-local contract packages.
+- Downstream packages should compile with this package as their only shared musical contract source.
+- Migration should not change runtime parser or renderer behavior unless the downstream package explicitly intends that change.
+- Published packages should reference a registry version of `achorde-musical-domain`, not a local `file:` dependency.

@@ -1,23 +1,25 @@
 # achorde-musical-domain
 
-Contratos musicais compartilhados para `ac15`, `tab-renderer` e `svguitar-react`.
+Shared TypeScript contracts for musical applications that need a common language for chord charts, parsed tabs, parser diagnostics, and fretted-instrument voicings.
 
-Este pacote reúne os tipos públicos que precisam sobreviver fora do produto privado AC15:
+The package is intentionally small and runtime-light. It defines stable data shapes that parsers, renderers, editors, and storage layers can agree on without depending on React, browser APIs, SVG rendering, or a specific music-theory engine.
 
-- diagnósticos de parser
-- símbolo de acorde parseado
-- AST textual de cifra
-- AST de cifra com segmentos, linhas e seções
-- voicings de instrumentos trasteados
-- porta para adaptação de teoria musical
+## What It Provides
 
-## Instalação
+- parser diagnostics
+- parsed chord symbols
+- textual tab AST contracts
+- chord-chart AST contracts with sections, lines, and segments
+- fretted-instrument voicing contracts
+- an explicit adapter interface for external music-theory engines
+
+## Installation
 
 ```bash
 pnpm add achorde-musical-domain
 ```
 
-## Uso
+## Usage
 
 ```ts
 import type { FrettedInstrumentVoicing, ParsedTab } from "achorde-musical-domain";
@@ -48,9 +50,15 @@ const tab: ParsedTab = {
 };
 ```
 
-## Documentação
+## Design Goals
 
-- [Arquitetura](docs/architecture.md)
-- [Migração](docs/migration.md)
+- Keep musical domain contracts portable across libraries and applications.
+- Avoid runtime coupling to UI frameworks, storage engines, routing, or SVG renderers.
+- Make parser and renderer boundaries explicit through typed AST and voicing contracts.
+- Preserve semantic versioning so downstream packages can upgrade safely.
+
+## Documentation
+
+- [Architecture](docs/architecture.md)
+- [Migration](docs/migration.md)
 - [Changelog](CHANGELOG.md)
-
