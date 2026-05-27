@@ -22,6 +22,9 @@ export type ChordChartLineKind =
   | "blank"
   | "unknown";
 
+/**
+ * @deprecated Use {@link ParsedTab} and `ParsedTabLine.tokens` instead.
+ */
 export type ChordChartSegment = {
   id: string;
   order: number;
@@ -33,6 +36,9 @@ export type ChordChartSegment = {
   };
 };
 
+/**
+ * @deprecated Use {@link ParsedTabLine} instead (`text` replaces `raw`, `tokens` replace `segments`).
+ */
 export type ChordChartLine = {
   id: string;
   order: number;
@@ -41,6 +47,9 @@ export type ChordChartLine = {
   segments: ChordChartSegment[];
 };
 
+/**
+ * @deprecated Use {@link ParsedTabSection} instead (`title` replaces `label`).
+ */
 export type ChordChartSection = {
   id: string;
   order: number;
@@ -50,10 +59,16 @@ export type ChordChartSection = {
   lines: ChordChartLine[];
 };
 
+/**
+ * @deprecated Use {@link ParsedTab} as the canonical chart AST.
+ */
 export type ChordChartAst = {
   sections: ChordChartSection[];
 };
 
+/**
+ * @deprecated Use {@link ParsedTab} instead.
+ */
 export type ParsedChordChart = ChordChartAst & {
   diagnostics: ParseDiagnostic[];
 };

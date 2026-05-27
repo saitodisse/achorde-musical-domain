@@ -8,8 +8,8 @@ The package is intentionally small and runtime-light. It defines stable data sha
 
 - parser diagnostics
 - parsed chord symbols
-- textual tab AST contracts
-- chord-chart AST contracts with sections, lines, and segments
+- textual tab AST contracts (`ParsedTab` with strict line kinds)
+- legacy chord-chart segment AST (deprecated; use `ParsedTab`)
 - fretted-instrument voicing contracts
 - an explicit adapter interface for external music-theory engines
 
@@ -22,7 +22,10 @@ pnpm add achorde-musical-domain
 ## Usage
 
 ```ts
-import type { FrettedInstrumentVoicing, ParsedTab } from "achorde-musical-domain";
+import type {
+  FrettedInstrumentVoicing,
+  ParsedTab,
+} from "achorde-musical-domain";
 
 const voicing: FrettedInstrumentVoicing = {
   id: "voicing-c-major",
@@ -47,6 +50,7 @@ const tab: ParsedTab = {
   diagnostics: [],
   parserVersion: "1.0.0",
   astVersion: "1.0.0",
+  chordsFound: ["C"],
 };
 ```
 
