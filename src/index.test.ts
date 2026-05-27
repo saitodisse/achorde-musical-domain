@@ -14,6 +14,7 @@ describe("achorde-musical-domain", () => {
       diagnostics: [],
       parserVersion: "1.0.0",
       astVersion: "1.0.0",
+      chordsFound: ["C"],
     } satisfies ParsedTab;
 
     expect(tab.body).toContain("[Verse]");

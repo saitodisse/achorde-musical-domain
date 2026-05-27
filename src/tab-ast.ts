@@ -42,4 +42,5 @@ export type ParsedTab = {
   diagnostics: ParseDiagnostic[];
   parserVersion: string;
   astVersion: string;
+  chordsFound: ReadonlyArray<string>;
 };
